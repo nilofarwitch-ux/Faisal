@@ -1,0 +1,44 @@
+[
+    {
+        "url": "https://raw.githubusercontent.com/Faisal0786/TestPlugins-old/builds/ExampleProvider.cs3",
+        "status": 1,
+        "version": 1,
+        "name": "ExampleProvider",
+        "internalName": "ExampleProvider",
+        "authors": [
+            "Cloudburst",
+            "Luna712"
+        ],
+        "description": "Lorem ipsum",
+        "fileSize": 7252,
+        "repositoryUrl": "https://github.com/Faisal0786/TestPlugins-old",
+        "language": "en",
+        "tvTypes": [
+            "Movie"
+        ],
+        "iconUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Korduene_Logo.png",
+        "apiVersion": 1,
+        "fileHash": "sha256-6ae6e9db37b4adafcb6b4f7f044523d9b87dbb3121ba6e3bb5ef99c8b7a3092e"
+    },
+    {
+        "url": "https://raw.githubusercontent.com/Faisal0786/TestPlugins-old/builds/ott.cs3",
+        "status": 1,
+        "version": 1,
+        "name": "ott",
+        "internalName": "ott",
+        "authors": [
+            "Faisal"
+        ],
+        "description": "Netflix, PrimeVideo, Disney+ Hotstar Contents in Multiple Languages",
+        "fileSize": 94968,
+        "repositoryUrl": "https://github.com/Faisal0786/TestPlugins-old",
+        "language": "hi",
+        "tvTypes": [
+            "Movie",
+            "TvSeries"
+        ],
+        "iconUrl": "https://raw.githubusercontent.com/Faisal0786/Desi/main/Icons/2504929.png",
+        "apiVersion": 1,
+        "fileHash": "sha256-34f8b44459b34e34e1184bf190f43873140c2a947a4c3b6814906ee5241edef8"
+    }
+]
