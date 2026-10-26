@@ -9,9 +9,11 @@ buildscript {
         mavenCentral()
         maven("https://jitpack.io")
     }
+
     dependencies {
         classpath("com.android.tools.build:gradle:9.1.0")
-        classpath("com.github.recloudstream:gradle:81b1d424d2")
+        classpath("com.github.recloudstream:gradle:gradle:master-SNAPSHOT")
+
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.3.20")
     }
 }
@@ -31,38 +33,53 @@ fun Project.android(configuration: LibraryExtension.() -> Unit) =
     extensions.getByName<LibraryExtension>("android").configuration()
 
 subprojects {
+
     apply(plugin = "com.android.library")
     apply(plugin = "com.lagradost.cloudstream3.gradle")
 
     cloudstream {
-        setRepo(System.getenv("GITHUB_REPOSITORY") ?: "https://github.com/SaurabhKaperwan/CSX")
-        authors = listOf("megix")
+        setRepo("Faisal0786/TestPlugins-old")
     }
 
     android {
-        namespace = "com.megix"
+        // Dynamically set namespace based on subproject
+        namespace = when(project.name) {
+            "StreamHubOne" -> "com.hindi.providers"
+            "SDmovies" -> "com.sdmovies"
+            "OttSource" -> "com.ottsource"
+            "ExampleProvider" -> "com.example"
+            else -> "com.example"
+        }
         compileSdk = 36
+
         defaultConfig {
             minSdk = 21
         }
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
+
+       buildFeatures {
+        buildConfig = true
+    }
+
+
+      compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_11
+            targetCompatibility = JavaVersion.VERSION_11
         }
     }
 
     tasks.withType<KotlinJvmCompile>().configureEach {
-        compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_1_8)
-            freeCompilerArgs.addAll(
-                listOf(
-                    "-Xno-call-assertions",
-                    "-Xno-param-assertions",
-                    "-Xno-receiver-assertions"
-                )
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_11)
+
+        freeCompilerArgs.addAll(
+            listOf(
+                "-Xno-call-assertions",
+                "-Xno-param-assertions",
+                "-Xno-receiver-assertions"
             )
-        }
+        )
     }
+}
 
     dependencies {
         val implementation by configurations
@@ -78,6 +95,8 @@ subprojects {
         implementation("androidx.annotation:annotation:1.10.0")
         implementation("androidx.browser:browser:1.8.0")
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+
+implementation("com.google.android.material:material:1.12.0")
     }
 }
 
